@@ -1,0 +1,13 @@
+\beamer@endinputifotherversion {3.10pt}
+\select@language {ngerman}
+\beamer@sectionintoc {1}{Einf\IeC {\"u}hrung}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Versionsverwaltungsysteme}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Grundbegriffe}{7}{0}{1}
+\beamer@sectionintoc {2}{Grundlegende Konzepte}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{Warum Versionsverwaltung}{10}{0}{2}
+\beamer@subsectionintoc {2}{2}{Listen II}{15}{0}{2}
+\beamer@sectionintoc {3}{Abschnitt Nr.3}{20}{0}{3}
+\beamer@subsectionintoc {3}{1}{Tabellen}{20}{0}{3}
+\beamer@sectionintoc {4}{Abschnitt Nr.4}{24}{0}{4}
+\beamer@subsectionintoc {4}{1}{Bl\"ocke}{24}{0}{4}
+\beamer@sectionintoc {5}{Referezen}{25}{0}{5}

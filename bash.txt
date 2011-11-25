@@ -1,0 +1,3 @@
+bernd@Power:~$ echo "Isabella und Lilly Wunder" | sha1sum
+25989877d4888b5a4f41850069a7c53ac2c8e3ff  -
+
