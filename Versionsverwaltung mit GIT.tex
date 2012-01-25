@@ -1,14 +1,3 @@
-% Dieser Text ist urheberrechtlich geschtzt
-% Er stellt einen Auszug eines von mir erstellten Referates dar
-% und darf nicht gewerblich genutzt werden
-% die private bzw. Studiums bezogen Nutzung ist frei
-% Januar 2006
-% Autor: Sascha Frank 
-% Universitt Freiburg 
-% www.informatik.uni-freiburg.de/~frank/
-% www.namsu.de/
-
-
 \documentclass{beamer}
 \usetheme{Boadilla}
 \usepackage[ngerman]{babel}
@@ -17,7 +6,8 @@
 \usepackage{lmodern}
 \usepackage{hyperref}
 \usepackage{listings} 
-
+\usepackage{graphicx}
+\usepackage{pgf}
 \usepackage{color}
 \definecolor{ex_green_titel}{RGB}{204,230,204}
 \definecolor{ex_green}{RGB}{230,243,230}
@@ -47,10 +37,13 @@ escapeinside={\%*}{*)},         % if you want to add a comment within your code
 morekeywords={*,...}            % if you want to add more keywords to the set
 }
 
-\title{Versionsverwaltung mit GIT}   
+\title{Eine Einführung in Versionverwaltungsysteme}   
+\subtitle{Wissenswertes für GIT-Anwender}
+\titlegraphic{\includegraphics[width=2cm,height=2cm]{erlangen}}
 \author[Bernd Wunder]{bernd.wunder@leb.eei.uni-erlangen.de} 
+\institute[LEB -- TF Uni Erlangen]{Lehrstuhl für Elektronische Bauelemente\\ Friedrich-Alexander-Universität Erlangen-Nürnberg}
 \date{\today}
-\logo{\includegraphics[scale=0.14]{logo-SF}}
+\logo{\includegraphics[scale=0.08]{erlangen}}
 
 \begin{frame}
 \titlepage
@@ -182,32 +175,65 @@ mit dem GNU/Linux Programm \textit{sha1sum} wird die Prüfsumme für den Text \t
 \lstinputlisting{bash.txt}
 \end{exampleblock}
 
-\begin{block}{Branch}
+\end{frame}
+\begin{frame}\frametitle{Grundbegriffe (GIT)}
+
+\begin{block}{\textit{Branch}}
+bezeichnet einen parallelen Entwicklungszweig. Der Hauptzweig in einem Versionsverwaltungssystem hat meistens einen speziellen Namen. ( z.B in SVN->\textit{trunk} und in GIT->\textit{master})
+\end{block}
+
+\begin{block}{Objektmodell}
+Git-Objekte (blob, tree, commit, tag) sind in einer Objektdatenbank gespeichert und über SHA1-Summen identifizierbar. Die History eines Repository lässt sich als Graph von Objekten modellieren.
+\end{block}
+
+\begin{block}{\textit{Index}}
+Der \textit{Index} ist ein lokaler Zwischenspeicher. Alle Änderungen werden zuerst in den index geschrieben. Anschießend wird der Index durch einen \textit{commit} in das Repository eingecheckt. 
 \end{block}
 
 \end{frame}
 \begin{frame}\frametitle{Grundbegriffe (GIT)}
-\begin{block}{master}
+
+\begin{block}{\textit{Clone}}
+ist eine Kopie eines Repositories mit der gesamten History der Entwicklung.
 \end{block}
 
-\begin{block}{Objektmodell}
-Git-Repository lässt sich als Graph von Commits modellieren
-\end{block}
-
-\begin{block}{Index}
-\end{block}
-
-\begin{block}{Clone}
-\end{block}
-
-\begin{block}{Tag}
+\begin{block}{\textit{Tag}}
+Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So können spezielle \textit{Commit} einen Namen, also ein \textit{Tag} erhalten. 
 \end{block}
 
 \end{frame}
 
 
 \section{Grundlegende Konzepte} 
-\subsection{Warum Versionsverwaltung}
+\subsection{Warum Versionsverwaltung}\frametitle{Warum Versionsverwaltung}
+
+\begin{frame}\frametitle{Warum Versionsverwaltung}
+\begin{columns}
+        \column{.55\textwidth}
+                \pgfimage[width=\textwidth]{Bilder/chaosschreibtisch}
+        \column{.45\textwidth}
+                \begin{enumerate}
+                \item viele gleichzeitige laufende Projekte / Features (z.B. Sicherheitsupdates, neue Funktionstests, verschiedene Versionen)
+                \item Um des Chaos Herr zu werden
+                \end{enumerate}
+\end{columns}
+
+\end{frame}
+\begin{frame}\frametitle{Warum Versionsverwaltung}
+\begin{columns}
+        \column{.55\textwidth}
+                \pgfimage[width=\textwidth]{Bilder/schreibtisch}
+        \column{.45\textwidth}
+                \begin{enumerate}
+                \item viele gleichzeitige laufende Projekte / Features (z.B. Sicherheitsupdates, neue  Funktionstests, verschiedene Versionen)
+                \item Um des Chaos Herr zu werden
+                \item Überblick über die gesamte Entwicklung behalten
+                \item kolaboratives Arbeiten in einem Team
+                \end{enumerate}
+\end{columns}
+\end{frame}
+
+\subsection{Branches, Merges und Tags}
 \begin{frame}\frametitle{Branches, Merges und Tags}
 \begin{description}
 \item[Branch] Parralle Entwicklung in Teams erfordert oft mehrere Zweige
@@ -233,7 +259,7 @@ Git-Repository lässt sich als Graph von Commits modellieren
 \end{itemize} 
 \end{frame}
 
-\subsection{Listen II}
+\subsection{Zweige, Branches, ...}
 \begin{frame}\frametitle{Numerierte Liste}
 \begin{enumerate}
 \item  Einf\"uhrungskurs in \LaTeX 
