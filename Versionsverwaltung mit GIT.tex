@@ -17,9 +17,9 @@
 \lstset{ 						%
 language=bash,                % the language of the code
 basicstyle=\footnotesize,       % the size of the fonts that are used for the code
-numbers=right,                   % where to put the line-numbers
-numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
-stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+%numbers=right,                   % where to put the line-numbers
+n%umberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+%stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
                                 % will be numbered
 numbersep=-10pt,                  % how far the line-numbers are from the code
 backgroundcolor=\color{light-gray},  % choose the background color. You must add \usepackage{color}
@@ -287,6 +287,42 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 \end{figure}
 \end{frame}
 
+\section{Befehle}
+\begin{frame}\frametitle{Befehle}
+
+\begin{block} {Getting Started}
+
+neues Repository im aktuellen Verzeichnis anlegen:
+\lstinputlisting{new.txt}
+
+eine Datei dem Repository hinzufügen:
+\lstinputlisting{befehl3.txt}
+
+alle Dateien im aktuellen Verzeichnis dem aktuellen Repository hinzufügen:
+\lstinputlisting{befehl.txt}
+
+einen Commit ausführen:
+\lstinputlisting{befehl2.txt}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}\frametitle{Befehle}
+
+\begin{block} {Remotes}
+Unter einem Remote versteht man eine entfernte Quelle. Der \lstinline|git remote| Befehl dient zum Verwalten der Remotes:
+\lstinputlisting{remote.txt}
+
+oder ausführlicher mit:
+\lstinputlisting{remote2.txt}
+
+einen neuen Alias auf einen entfernten Remote hinzufügen:
+\lstinputlisting{remote3.txt}
+
+\end{block}
+
+\end{frame}
 
 \section[Quellen]{Referezen}
 \begin{frame}\frametitle{Quellen \& Literatur}
@@ -300,6 +336,8 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 
 
 \end{frame}
+
+
 
 
 
