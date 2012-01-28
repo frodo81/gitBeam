@@ -252,8 +252,8 @@ Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So könn
 
 \section{Tools}
 \subsection{gitk}
-\begin{frame}\frametitle{Repository Tool: gitk}
-\begin{block}{gitk}
+\begin{frame}\frametitle{Repository Tool: \textit{gitk}}
+\begin{block}{\textit{gitk}}
 In Tcl programmiertes grafisches Frontend zur Anzeige des Repositories. Ist im Git Standard Umfang enthalten und somit \textbf{immer} vorhanden. Ermöglicht einen schnellen Überblick über die History, Commits, Diffs, Tags und die Struktur des Repositories. 
 \end{block}
 
@@ -264,14 +264,14 @@ In Tcl programmiertes grafisches Frontend zur Anzeige des Repositories. Ist im G
 \end{frame}
 
 \subsection{git-gui}
-\begin{frame}\frametitle{Commit Tool: git-gui}
-\begin{block}{gitk}
+\begin{frame}\frametitle{Commit Tool: \textit{git-gui}}
+\begin{block}{\textit{git-gui}}
 Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits zu erstellen. 
 \end{block}
 
 \begin{figure}
 \includegraphics[scale=1.1]{Bilder/git_gui} 
-\caption{\textit{git gui}: einfach, übersichtlich und immer da!}
+\caption{\textit{git-gui}: Frontend für die Erstellung eines Commits. Ist wie \textit{gitk} im Standardumfang enthalten.}
 \end{figure}
 \end{frame}
 
@@ -287,49 +287,94 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 \end{figure}
 \end{frame}
 
+%--- Befehle ---
 \section{Befehle}
-\begin{frame}\frametitle{Befehle}
-
+\begin{frame}[fragile]\frametitle{Befehle}
 \begin{block} {Getting Started}
-
 neues Repository im aktuellen Verzeichnis anlegen:
-\lstinputlisting{new.txt}
+\begin{lstlisting}
+git init
+\end{lstlisting}
+%\lstinputlisting{new.txt}
 
 eine Datei dem Repository hinzufügen:
-\lstinputlisting{befehl3.txt}
+\begin{lstlisting}
+git add /Pfad/Zur/Datei
+\end{lstlisting}
 
 alle Dateien im aktuellen Verzeichnis dem aktuellen Repository hinzufügen:
-\lstinputlisting{befehl.txt}
+\begin{lstlisting}
+git add .
+\end{lstlisting}
 
 einen Commit ausführen:
-\lstinputlisting{befehl2.txt}
-
+\begin{lstlisting}
+git commit -m "Initial Commit"
+\end{lstlisting}
 \end{block}
-
 \end{frame}
 
-\begin{frame}\frametitle{Befehle}
-
+%--- Befehle 2---
+\begin{frame}[fragile]\frametitle{Befehle 2}
 \begin{block} {Remotes}
-Unter einem Remote versteht man eine entfernte Quelle. Der \lstinline|git remote| Befehl dient zum Verwalten der Remotes:
-\lstinputlisting{remote.txt}
+Unter einem Remote versteht man eine entfernte Quelle. Der \textbf{\lstinline|git remote|} Befehl dient zum Verwalten der Remotes:
+\begin{lstlisting}[mathescape=true]
+bernd@power:~$\$$ $\textbf{git remote}$
+origin
+power
+\end{lstlisting}
+%$
 
 oder ausführlicher mit:
-\lstinputlisting{remote2.txt}
+\begin{lstlisting}[mathescape=true]
+bernd@power:~$\$$ $\textbf{git remote -v}$
+origin  /media/Transcend/Versionsverwaltung_mit_GIT/ (fetch)
+origin  /media/Transcend/Versionsverwaltung_mit_GIT/ (push)
+\end{lstlisting}
+%$
 
 einen neuen Alias auf einen entfernten Remote hinzufügen:
-\lstinputlisting{remote3.txt}
-
+\begin{lstlisting}
+git remote add newName https://www.weitWeg.de/Repository.git
+\end{lstlisting}
 \end{block}
-
 \end{frame}
 
+%--- Befehle 3 ---
+\begin{frame}[fragile]\frametitle{Befehle 3}
+\begin{block} {branch}
+Für die Erstellung eines neuen Zweiges (branch):
+\begin{lstlisting}
+git branch lilly
+\end{lstlisting}
+
+Eine ausführliche Übersicht über die vorhandenen Branches:
+\begin{lstlisting}[mathescape=true]
+bernd@Power:~$\$$ $\textbf{git branch -v}$
+* lilly  98a74d9 Some further commands
+  master e2694e7 Some explaination about commands
+\end{lstlisting} %$
+
+Umbenenen des aktuellen Zweiges nach isabella:
+\begin{lstlisting}
+git branch -m isabella
+\end{lstlisting}
+
+In einen anderen Zweig wechseln und auschecken (hier in master):
+\begin{lstlisting}
+git checkout master
+\end{lstlisting}
+
+\end{block}
+\end{frame}
+
+%--- Quellen ---
 \section[Quellen]{Referezen}
 \begin{frame}\frametitle{Quellen \& Literatur}
 
 \begin{thebibliography}{9}
 \bibitem[Beamerpaket]{paket} \emph{Beamer Paket} \\ 
-\text{http://latex-beamer.sourceforge.net/}
+\text{http://latex-beamer.sourceforge.net/}98a74d912af7ebf23902ee03aa9be4cbe87ccd7e
 \bibitem[Beamerdokumentation]{doku} \emph{User's Guide to the Beamer} 
 \bibitem[Dante]{dante} \emph{DANTE e.V.} \text{http://www.dante.de}   
 \end{thebibliography}
