@@ -1,0 +1,3 @@
+bernd@power:~$ git remote -v
+origin  /media/Transcend/Versionsverwaltung_mit_GIT/ (fetch)
+origin  /media/Transcend/Versionsverwaltung_mit_GIT/ (push)

@@ -1,0 +1,3 @@
+bernd@power:~$ git remote
+origin
+power
