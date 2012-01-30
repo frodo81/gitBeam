@@ -53,11 +53,14 @@ morekeywords={*,...}            % if you want to add more keywords to the set
 \frametitle{Inhaltsverzeichnis}\tableofcontents
 \end{frame}
 
-
+%--- Einführung ---
 \section{Einführung} 
-\subsection{Versionsverwaltungsysteme}
-\begin{frame}\frametitle{Versionsverwaltungsysteme} 
 
+%--- Was ist ein Versionsverwaltungsystem ---
+\subsection{Was ist ein Versionsverwaltungsystem}
+
+%--- Was ist ein Versionsverwaltungsystem ---
+\begin{frame}\frametitle{Was ist ein Versionsverwaltungsystem} 
 \begin{quote}
 Eine Versionsverwaltung ist ein System, das zur Erfassung von Änderungen an Dokumenten oder Dateien verwendet wird. Alle Versionen werden in einem Archiv mit Zeitstempel und Benutzerkennung gesichert und können später wiederhergestellt werden.
 \footnote{Quelle: \href{http://de.wikipedia.org/wiki/Versionsverwaltung}{Wikipedia}}
@@ -73,140 +76,10 @@ Aufgaben
 \end{itemize} 
 \end{frame}
 
-\begin{frame}\frametitle{Versionsverwaltungsysteme} 
+%----- Warum Versionsverwaltung -----
+\subsection{Warum Versionsverwaltung}
 
-engl. Bezeichnungen: \textit{Version Control System (VCS)}, \textit{Software Configuration Management (SCM)}, \textit{Revision Control System (RCS)}
-
-\vspace*{0.15cm}
-\textbf{unvollständige Übersicht einiger VCSe:}
-\begin{block}{Revision Control System (RCS)}
-	\begin{tabular}{l c}
-Entwicklung: & 1980 bis 2004  \\  
-Einteilung: & zentrales, dateibasiertes VCS \\ 
-Probleme: & Binärdateien, Verzeichnisse, locks, merge, \\
-          & keine Atomic commits, keine Metadaten, umbenennen  \\
-Prüfsumme: & --- \\
-Compression: & --- \\
-Lizenz: & GPL2 \\
-Betriebsysteme: & UNIX, WIN95 \\
-
-\end{tabular} 
-
-\vspace*{0.3cm}
-Entwickelt für die Versionsverwaltung von Text-Dateien auf einem Computer!
-RCS ist im Wesentlichen mit ersten VCS, dem \textit{Source Code Control System (SCCS)}, vergleichbar.
-\end{block}
-
-
-\end{frame}
-
-\begin{frame}\frametitle{Versionsverwaltungsysteme} 
-
-\begin{block}{Concurrent Versions System (CVS)}
-	\begin{tabular}{l c}
-basierend auf: & RCP (nutzt gleiches Speicherformat) \\ 
-Entwicklung: & 1989 bis 2008  \\  
-Einteilung: & zentrales VCS \\ 
-Probleme: & Binärdateien, Verzeichnisse, locks, merge, \\
-          & keine Atomic commits, keine Metadaten, umbenennen  \\
-Prüfsumme: & --- \\
-Compression: & --- \\
-Lizenz: & GPL2 \\
-Betriebsysteme: & UNIX, WINDOWS, Mac OS X \\
-\end{tabular} 
-
-\vspace*{0.3cm}
-CVS wird nicht mehr aktiv weiterentwickelt. Die offizielle Webseite wird nicht mehr weiter betreut. \footnote{Quelle: \href{http://de.wikipedia.org/wiki/Concurrent_Versions_System}{Wikipedia}}
-\end{block}
-
-
-\end{frame}
-
-\begin{frame}\frametitle{Versionsverwaltungsysteme} 
-
-\begin{block}{Subversion (SVN)}
-	\begin{tabular}{l c}
-basierend auf: & CVS (Nachfolger) \\ 
-Entwicklung: & seit 2000  \\  
- & Ziele CVS Probleme (siehe oben) zu beseitigen \\
-Einteilung: & zentrales VCS \\ 
-Probleme: & Binärdateien, Verzeichnisse, locks, merge \\
-Prüfsumme: & --- \\
-Compression: & --- \\
-Lizenz: & Apache License \\
-Betriebsysteme: & UNIX, WINDOWS, Mac OS X \\
-\end{tabular} 
-
-\vspace*{0.3cm}
-CVS wird nicht mehr aktiv weiterentwickelt. Die offizielle Webseite wird nicht mehr weiter betreut. \footnote{Quelle: \href{http://de.wikipedia.org/wiki/Concurrent_Versions_System}{Wikipedia}}
-\end{block}
-
-
-\end{frame}
-
-\subsection{Grundbegriffe}
-\begin{frame}\frametitle{Grundbegriffe}
-\begin{block}{Repository}
-Datenbank in dem jeder Dateistand eines Projektes über die Zeit hinweg gespeichert ist.
-\end{block}
-
-\begin{block}{Working Tree}
-Arbeitsverzeichnis in dem die Modifikationen durchgeführt werden.
-\end{block}
-
-\begin{block}{Commit}
-beinhaltet alle Veränderungen bzw. spiegelt den aktuellen Zustand der in das VCS aufgenommen werden soll wieder. Enthält neben den Änderungen zusätzliche Metadaten (Commit Message, Autor, Datum, Signatur, ...)
-\end{block}
-
-\begin{block}{HEAD}
-zeigt auf die neueste Version \textit{Kopf} im aktuellen Zweig (Branch)
-
-Achtung: Unterschide zwischen GIT und SVN,CVS
-\end{block}
-\end{frame}
-
-\begin{frame}\frametitle{Grundbegriffe}
-\begin{block}{Secure Hash Algorithm (SHA-1)}
-ist eine eindeutige, 160 Bit (40 hexadezimale Zeichen) lange Prüfsumme für beliebige digitale Informationen.
-\end{block}
-
-\begin{exampleblock}{Beispiel:}
-mit dem GNU/Linux Programm \textit{sha1sum} wird die Prüfsumme für den Text \textit{"'Isabella und Lilly Wunder"'} berechnet werden:
-\lstinputlisting{bash.txt}
-\end{exampleblock}
-
-\end{frame}
-\begin{frame}\frametitle{Grundbegriffe (GIT)}
-
-\begin{block}{\textit{Branch}}
-bezeichnet einen parallelen Entwicklungszweig. Der Hauptzweig in einem Versionsverwaltungssystem hat meistens einen speziellen Namen. ( z.B in SVN->\textit{trunk} und in GIT->\textit{master})
-\end{block}
-
-\begin{block}{Objektmodell}
-Git-Objekte (blob, tree, commit, tag) sind in einer Objektdatenbank gespeichert und über SHA1-Summen identifizierbar. Die History eines Repository lässt sich als Graph von Objekten modellieren.
-\end{block}
-
-\begin{block}{\textit{Index}}
-Der \textit{Index} ist ein lokaler Zwischenspeicher. Alle Änderungen werden zuerst in den index geschrieben. Anschießend wird der Index durch einen \textit{commit} in das Repository eingecheckt. 
-\end{block}
-
-\end{frame}
-\begin{frame}\frametitle{Grundbegriffe (GIT)}
-
-\begin{block}{\textit{Clone}}
-ist eine Kopie eines Repositories mit der gesamten History der Entwicklung.
-\end{block}
-
-\begin{block}{\textit{Tag}}
-Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So können spezielle \textit{Commit} einen Namen, also ein \textit{Tag} erhalten. 
-\end{block}
-
-\end{frame}
-
-
-\section{Grundlegende Konzepte} 
-\subsection{Warum Versionsverwaltung}\frametitle{Warum Versionsverwaltung}
-
+%--- Warum Versionsverwaltung ---
 \begin{frame}\frametitle{Warum Versionsverwaltung}
 \begin{columns}
         \column{.55\textwidth}
@@ -217,8 +90,9 @@ Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So könn
                 \item Um des Chaos Herr zu werden
                 \end{enumerate}
 \end{columns}
-
 \end{frame}
+
+%--- Warum Versionsverwaltung ---
 \begin{frame}\frametitle{Warum Versionsverwaltung}
 \begin{columns}
         \column{.55\textwidth}
@@ -233,8 +107,220 @@ Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So könn
 \end{columns}
 \end{frame}
 
-\subsection{Branches, Merges und Tags}
-\begin{frame}\frametitle{Branches, Merges und Tags}
+%----- Übersicht über Versionsverwaltungsysteme -----
+\subsection{Übersicht über Versionsverwaltungssysteme}
+
+%--- Übersicht über Versionsverwaltungsysteme ---
+\begin{frame}\frametitle{Übersicht über Versionssverwaltungsysteme} 
+engl. Bezeichnungen: \textit{Version Control System (VCS)}, \textit{Software Configuration Management (SCM)}, \textit{Revision Control System (RCS)}
+\vspace*{0.15cm}
+\textbf{unvollständige Übersicht einiger VCSe:}
+\begin{block}{Revision Control System (RCS)}
+	\begin{tabular}{l c}
+Entwicklung: & 1980 bis 2004  \\  
+Einteilung: & zentrales, dateibasiertes VCS \\ 
+Probleme: & Binärdateien, Verzeichnisse, locks, merge, \\
+          & keine Atomic commits, keine Metadaten, umbenennen  \\
+Lizenz: & GPL2 \\
+Betriebsysteme: & UNIX, WIN95 \\
+
+\end{tabular} 
+
+\vspace*{0.3cm}
+Entwickelt für die Versionsverwaltung von Text-Dateien auf einem Computer!
+RCS ist im Wesentlichen mit dem ersten VCS, dem \textit{Source Code Control System (SCCS)}, vergleichbar.
+\end{block}
+\end{frame}
+
+%--- Versionsverwaltungsysteme ---
+\begin{frame}\frametitle{Versionsverwaltungsysteme} 
+\begin{block}{Concurrent Versions System (CVS)}
+	\begin{tabular}{l c}
+basierend auf: & RCP (nutzt gleiches Speicherformat) \\ 
+Entwicklung: & 1989 bis 2008  \\  
+Einteilung: & zentrales VCS \\ 
+Probleme: & Binärdateien, Verzeichnisse, locks, merge, \\
+          & keine Atomic commits, keine Metadaten, umbenennen  \\
+Lizenz: & GPL2 \\
+Betriebsysteme: & UNIX, WINDOWS, Mac OS X \\
+\end{tabular} 
+
+\vspace*{0.3cm}
+CVS wird nicht mehr aktiv weiterentwickelt. Die offizielle Webseite wird nicht mehr weiter betreut. \footnote{Quelle: \href{http://de.wikipedia.org/wiki/Concurrent_Versions_System}{Wikipedia}}
+\end{block}
+\end{frame}
+
+%--- Versionsverwaltungsysteme ---
+\begin{frame}\frametitle{Versionsverwaltungsysteme} 
+\begin{block}{Subversion (SVN)}
+	\begin{tabular}{l c}
+basierend auf: & CVS (Nachfolger) \\ 
+Entwicklung: & seit 2000  \\  
+ & Ziele CVS Probleme (siehe oben) zu beseitigen \\
+Einteilung: & zentrales VCS \\ 
+Probleme: & Binärdateien, Verzeichnisse, locks, merge \\
+Lizenz: & Apache License \\
+Betriebsysteme: & UNIX, WINDOWS, Mac OS X \\
+\end{tabular} 
+\begin{quote}
+Subversion versteht sich als Weiterentwicklung von CVS und entstand als Reaktion auf weit verbreitete Kritik an CVS. In der Bedienung der Kommandozeilenversion ist es sehr ähnlich gehalten.  \footnote{Quelle: \href{http://de.wikipedia.org/wiki/Subversion_\%28Software\%29}{Wikipedia}}
+\end{quote}
+\end{block}
+\end{frame}
+
+%--- Vergleich einiger Versionsverwaltungsysteme ---
+\begin{frame}\frametitle{Vergleich\footnote{Quelle: \href{http://better-scm.shlomifish.org/comparison/comparison.html}{Version Control System Comparison}} einiger Versionsverwaltungsysteme }
+\begin{exampleblock}{Vergleich | CVS,SVN,GIT,Mercurial}
+	\begin{tabular}{l|c c c c}
+	\hline
+		\textbf{Operation} & \textbf{CVS} & \textbf{SVN} & \textbf{GIT} & \textbf{Mercurial} \\
+	\hline
+	\hline
+		Atomic Commits: & Nein & Ja & Ja & Ja \\
+	\hline
+		Umbenennen/Verschieben von\\
+		Dateien und Verzeichnissen: & Nein & Ja & Ja & Ja \\
+	\hline
+		Intelligente Merges \\ 
+		nach Umbenungen/Verschiebungen: & Nein & Nein & Nein & Ja \\
+	\hline
+		Verzeichnisse/Dateien mit History \\
+		im Repository kopieren: & Nein & Ja & Nein & Ja \\
+	\hline		
+		Remote Kopie in lokales Verzeichnis: & Nein & Nein & Ja & Ja \\
+	\hline		
+		Änderungen an andere \\
+		Repository weitergeben: & Nein & Nein & Ja & Ja \\		
+	\hline		
+		Changesets Support & Nein & teilw. & Ja & Ja \\ 		
+	\hline
+	\hline
+\end{tabular} 
+\end{exampleblock}
+\end{frame}
+
+%--- Warum Git? ---
+\begin{frame}\frametitle{Warum Git?}
+\begin{description}
+\item[Speed] Schnellstes mir bekannte Versionsverwaltungssystem 
+\item[Branch] sehr einfach Zweige (Branch) zu erstellen und zusammenzuführen!
+\item[Lokal] alle Informationen sind lokal gespeichert, keine Netzwerkverbindung notwendig!
+\item[Speicher] sehr geringer Speicherverbrauch durch Kompression
+\end{description}
+
+\begin{figure}
+\includegraphics[scale=0.25]{Bilder/speed2} 
+\caption{Geschwindigkeitsvergleich von Git, Mercuial und Baszar}
+\end{figure}
+\end{frame}
+
+%--- Warum Git? ---
+\begin{frame}\frametitle{Warum Git?}
+\begin{description}
+\item[Protokoll] http, https, ssh, git, ...
+\item[Kooperativ] gute Zusammenarbeit mit anderen Versionsverwaltungssystemen. Z.B. mit SVN oder CVS
+\item[Stabil] sehr aktives Projekt mit vielen hundert Entwicklern
+\item[tested] Protokiv im Einsatz bei Linux-Kernel (>1000 Entwickler)
+\end{description}
+
+\begin{figure}
+\includegraphics[scale=0.5]{Bilder/svnvsgit1} 
+\caption{Geschwindigkeitsvergleich von Git, Mercuial und Baszar}
+\end{figure}
+\end{frame}
+
+%--- Warum Git? ---
+\begin{frame}\frametitle{Wer nutzt Git?}
+Viele Open Source Projekte setzen bereits Git ein:
+
+\begin{columns}
+        \column{.5\textwidth}
+                \begin{itemize}                
+					\item Linux Kernel
+					\item Git
+					\item Android (Google's Handy OS) 
+					\item CakePHP (PHP Framework) 
+					\item Debian - Linux Distribution
+					\item Drupal - CMS System
+					\item Typo3 - CMS System
+					\item Perl
+					\item Ruby on Rails
+	                \item VLC
+                \end{itemize}
+        \column{.5\textwidth}
+                \begin{itemize}
+                \item PostgreSQL
+                \item KDE
+                \item Fluxbox
+                \item X.Org
+                \item GCC (Gnu Compiler Collection)
+                \item JQuery (JavaScript library) 
+                \item Qt (Cross-platform graphic toolkit)
+                \item Eclipse
+                \item Gnome
+                \item ...
+                \end{itemize}
+\end{columns}
+
+\end{frame}
+
+%--- Grundbegriffe ---
+\subsection{Grundbegriffe}
+
+%--- Grundbegriffe (GIT) ---
+\begin{frame}\frametitle{Grundbegriffe}
+\begin{block}{Repository}
+Datenbank in dem jeder Dateistand eines Projektes über die Zeit hinweg gespeichert ist.
+\end{block}
+\begin{block}{Working Tree}
+Arbeitsverzeichnis in dem die Modifikationen durchgeführt werden.
+\end{block}
+\begin{block}{Commit}
+beinhaltet alle Veränderungen bzw. spiegelt den aktuellen Zustand der in das VCS aufgenommen werden soll wieder. Enthält neben den Änderungen zusätzliche Metadaten (Commit Message, Autor, Datum, Signatur, ...)
+\end{block}
+\begin{block}{HEAD}
+zeigt auf die neueste Version \textit{Kopf} im aktuellen Zweig (Branch)
+
+Achtung: Unterschide zwischen GIT und SVN,CVS
+\end{block}
+\end{frame}
+
+%--- Grundbegriffe (GIT) ---
+\begin{frame}\frametitle{Grundbegriffe}
+\begin{block}{Secure Hash Algorithm (SHA-1)}
+ist eine eindeutige, 160 Bit (40 hexadezimale Zeichen) lange Prüfsumme für beliebige digitale Informationen.
+\end{block}
+\begin{exampleblock}{Beispiel:}
+mit dem GNU/Linux Programm \textit{sha1sum} wird die Prüfsumme für den Text \textit{"'Isabella und Lilly Wunder"'} berechnet werden:
+\lstinputlisting{bash.txt}
+\end{exampleblock}
+\end{frame}
+
+%--- Grundbegriffe (GIT) ---
+\begin{frame}\frametitle{Grundbegriffe (GIT)}
+\begin{block}{\textit{Branch}}
+bezeichnet einen parallelen Entwicklungszweig. Der Hauptzweig in einem Versionsverwaltungssystem hat meistens einen speziellen Namen. ( z.B in SVN->\textit{trunk} und in GIT->\textit{master})
+\end{block}
+\begin{block}{Objektmodell}
+Git-Objekte (blob, tree, commit, tag) sind in einer Objektdatenbank gespeichert und über SHA1-Summen identifizierbar. Die History eines Repository lässt sich als Graph von Objekten modellieren.
+\end{block}
+\begin{block}{\textit{Index}}
+Der \textit{Index} ist ein lokaler Zwischenspeicher. Alle Änderungen werden zuerst in den index geschrieben. Anschießend wird der Index durch einen \textit{commit} in das Repository eingecheckt. 
+\end{block}
+\end{frame}
+
+%--- Grundbegriffe (GIT) ---
+\begin{frame}\frametitle{Grundbegriffe (GIT)}
+\begin{block}{\textit{Clone}}
+ist eine Kopie eines Repositories mit der gesamten History der Entwicklung.
+\end{block}
+\begin{block}{\textit{Tag}}
+Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So können spezielle \textit{Commit} einen Namen, also ein \textit{Tag} erhalten. 
+\end{block}
+\end{frame}
+
+%--- History als Graph: Von Branches, Merges und Tags ---
+\begin{frame}\frametitle{History als Graph: Von Branches, Merges und Tags}
 \begin{description}
 \item[Branch] Parralle Entwicklung in Teams erfordert oft mehrere Zweige
 \item[Tag] Name für eine bestimmte Version 
@@ -246,12 +332,34 @@ Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So könn
 \includegraphics[scale=0.15]{2000px-Subversion_project_visualization} 
 \caption{Branches, Merges und Tags \footnote{Quelle: \href{http://en.wikipedia.org/wiki/File:Subversion_project_visualization.svg}{Wikipedia}}}
 \end{figure}
-
-
 \end{frame}
 
+%----- Lokale, zentrale und verteilte Versionsverwaltungssysteme -----
+\section{Lokale, zentrale und verteilte Versionsverwaltungssysteme} 
+
+%----- Branches, Merges und Tags -----
+\begin{frame}\frametitle{Lokale, zentrale und verteilte Versionsverwaltungssysteme}
+\begin{description}
+\item[lokal] rcs: einfache Ergänzung des Dateisystems.
+\item[zentral] Subversion (SVN), CVS: Kommunikation nur über zentralen Server.
+\item[verteilt] Git, Baszar, Merkurial: Kommunikation beliebig.
+
+\end{description}
+
+\begin{figure}
+\includegraphics[scale=.15]{Bilder/VCSArten}
+\caption{Unterschiedliche Arten von Versionsverwaltungssystemen
+ \footnote{Quelle: \href{http://progit.org/}{Pro Git - Scott Chacon}}}
+\end{figure}
+\end{frame}
+
+%----- Tools -----
 \section{Tools}
+
+%----- gitk -----
 \subsection{gitk}
+
+%--- Repository Tool: gitk ---
 \begin{frame}\frametitle{Repository Tool: \textit{gitk}}
 \begin{block}{\textit{gitk}}
 In Tcl programmiertes grafisches Frontend zur Anzeige des Repositories. Ist im Git Standard Umfang enthalten und somit \textbf{immer} vorhanden. Ermöglicht einen schnellen Überblick über die History, Commits, Diffs, Tags und die Struktur des Repositories. 
@@ -275,7 +383,10 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 \end{figure}
 \end{frame}
 
+%----- Diff-Tools -----
 \subsection{Diff-Tools}
+
+%--- Diff-Tool: meld ---
 \begin{frame}\frametitle{Diff-Tool: meld}
 %\begin{block}{gitk}
 %Diffs betrachten und mergen (zusammenführen) von Änderungen und Konflikten.
@@ -287,8 +398,11 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 \end{figure}
 \end{frame}
 
-%--- Befehle ---
+
+%----- Befehle -----
 \section{Befehle}
+
+%--- Befehle ---
 \begin{frame}[fragile]\frametitle{Befehle}
 \begin{block} {Getting Started}
 neues Repository im aktuellen Verzeichnis anlegen:
@@ -368,8 +482,53 @@ git checkout master
 \end{block}
 \end{frame}
 
-%--- Quellen ---
+%----- Protokolle -----
+\section{Protokolle}
+
+%--- Protokolle ---
+\begin{frame}[fragile]\frametitle{Protokolle}
+\begin{block} {Protokolle}
+Zwischen den Repositories können Daten mit einer Reihe unterschiedlicher Protokolle ausgetauscht werden:
+\begin{itemize}
+\item http (Webserver)
+\item https (Webserver, verschlüsselt)
+\item ftp (Webserver)
+\item ssh (Secure Shell, verschlüsselt, admins)
+\item rsync (GNU/Linux, Synchronisationsprotokoll mit Delta-Kodierung)
+\item git (git-Protokoll, gepackt)
+\item email (Patches via Email, Mailing-Liste)
+\end{itemize}
+\end{block}
+\end{frame}
+
+%--- Protokolle - Beispiele ---
+\begin{frame}[fragile]\frametitle{Protokolle - Beispiele}
+\begin{block} {\textit{clone}-Befehl}
+Um ein entferntes Repository zu klonen:
+\begin{lstlisting}
+git clone <remote> <local>
+\end{lstlisting}
+\end{block}
+\begin{exampleblock} {git-Quellcode von github.com klonen}
+über das git-Protokll von github.com kopieren:
+\begin{lstlisting}
+git clone git://github.com/gitster/git.git git
+\end{lstlisting}
+und über https:
+\begin{lstlisting}
+git clone https://github.com/gitster/git.git git
+\end{lstlisting}
+oder von einer localen Quelle:
+\begin{lstlisting}
+git clone /home/julia/git git
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+%----- Quellen ----- 
 \section[Quellen]{Referezen}
+
+%--- Quellen und Literatur ---
 \begin{frame}\frametitle{Quellen \& Literatur}
 
 \begin{thebibliography}{9}
