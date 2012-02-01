@@ -13,6 +13,9 @@
 \definecolor{ex_green}{RGB}{230,243,230}
 \definecolor{light-gray}{gray}{0.95}
 
+% Abschalten der Navigationsleiste!
+% \beamertemplatenavigationsymbolsempty
+
 \begin{document}
 \lstset{ 						%
 language=bash,                % the language of the code
@@ -51,13 +54,22 @@ morekeywords={*,...}            % if you want to add more keywords to the set
 
 \begin{frame}
 \frametitle{Inhaltsverzeichnis}\tableofcontents
+%[pausesections]
 \end{frame}
 
 %--- Einführung ---
 \section{Einführung} 
 
+
 %--- Was ist ein Versionsverwaltungsystem ---
 \subsection{Was ist ein Versionsverwaltungsystem}
+\begin{frame}[c]{Einführung}
+\begin{center}
+\begin{Huge}
+Was ist ein Versionsverwaltungssystem
+\end{Huge}
+\end{center}
+\end{frame}
 
 %--- Was ist ein Versionsverwaltungsystem ---
 \begin{frame}\frametitle{Was ist ein Versionsverwaltungsystem} 
@@ -77,10 +89,18 @@ Aufgaben
 \end{frame}
 
 %----- Warum Versionsverwaltung -----
-\subsection{Warum Versionsverwaltung}
+\subsection{Warum Versionsverwaltung?}
+\begin{frame}[c]
+\begin{center}
+\begin{Huge}
+Warum Versionsverwaltung?
+\end{Huge}
+\end{center}
+\end{frame}
+
 
 %--- Warum Versionsverwaltung ---
-\begin{frame}\frametitle{Warum Versionsverwaltung}
+\begin{frame}\frametitle{Warum Versionsverwaltung?}
 \begin{columns}
         \column{.55\textwidth}
                 \pgfimage[width=\textwidth]{Bilder/chaosschreibtisch}
@@ -93,7 +113,7 @@ Aufgaben
 \end{frame}
 
 %--- Warum Versionsverwaltung ---
-\begin{frame}\frametitle{Warum Versionsverwaltung}
+\begin{frame}\frametitle{Warum Versionsverwaltung?}
 \begin{columns}
         \column{.55\textwidth}
                 \pgfimage[width=\textwidth]{Bilder/schreibtisch}
@@ -108,7 +128,14 @@ Aufgaben
 \end{frame}
 
 %----- Übersicht über Versionsverwaltungsysteme -----
-\subsection{Übersicht über Versionsverwaltungssysteme}
+\subsection{Übersicht über Versionsverwaltungsysteme}
+\begin{frame}[c]
+\begin{center}
+\begin{Huge}
+Übersicht über Versionsverwaltungssysteme
+\end{Huge}
+\end{center}
+\end{frame}
 
 %--- Übersicht über Versionsverwaltungsysteme ---
 \begin{frame}\frametitle{Übersicht über Versionssverwaltungsysteme} 
@@ -168,6 +195,26 @@ Subversion versteht sich als Weiterentwicklung von CVS und entstand als Reaktion
 \end{block}
 \end{frame}
 
+%--- Git ---
+\begin{frame}\frametitle{Git}
+\begin{columns}
+        \column{.65\textwidth}
+        {\small Die Entwicklung von Git wurde im April 2005 von Linus Torvalds begonnen, um das bis dahin verwendete Versionskontrollsystem BitKeeper zu ersetzen, das durch eine Lizenzänderung vielen Entwicklern den Zugang verwehrte. Die erste Version erschien bereits wenige Tage nach der Ankündigung. Derzeitiger Maintainer von Git ist Junio Hamano.}
+                \begin{enumerate}
+                \item Nicht-lineare Entwicklung
+                \item Kein zentraler Server
+                \item Datentransfer zwischen Repositories
+                \item Kryptographische Sicherheit der Projektgeschichte
+                \item Interoperabilität
+				\item Web-Interface
+                \end{enumerate}
+        \column{.35\textwidth}
+                \pgfimage[width=\textwidth]{Bilder/torvalds}
+                
+{\tiny Linus Torvalds ist Initiator von Git und des Kernels Linux}
+\end{columns}
+\end{frame}
+
 %--- Vergleich einiger Versionsverwaltungsysteme ---
 \begin{frame}\frametitle{Vergleich\footnote{Quelle: \href{http://better-scm.shlomifish.org/comparison/comparison.html}{Version Control System Comparison}} einiger Versionsverwaltungsysteme }
 \begin{exampleblock}{Vergleich | CVS,SVN,GIT,Mercurial}
@@ -199,6 +246,16 @@ Subversion versteht sich als Weiterentwicklung von CVS und entstand als Reaktion
 \end{exampleblock}
 \end{frame}
 
+%----- Warum Git? -----
+\subsection{Warum Git?}
+\begin{frame}[c]
+\begin{center}
+\begin{Huge}
+Warum Git?
+\end{Huge}
+\end{center}
+\end{frame}
+
 %--- Warum Git? ---
 \begin{frame}\frametitle{Warum Git?}
 \begin{description}
@@ -220,12 +277,24 @@ Subversion versteht sich als Weiterentwicklung von CVS und entstand als Reaktion
 \item[Protokoll] http, https, ssh, git, ...
 \item[Kooperativ] gute Zusammenarbeit mit anderen Versionsverwaltungssystemen. Z.B. mit SVN oder CVS
 \item[Stabil] sehr aktives Projekt mit vielen hundert Entwicklern
-\item[tested] Protokiv im Einsatz bei Linux-Kernel (>1000 Entwickler)
 \end{description}
 
 \begin{figure}
 \includegraphics[scale=0.5]{Bilder/svnvsgit1} 
 \caption{Geschwindigkeitsvergleich von Git, Mercuial und Baszar}
+\end{figure}
+\end{frame}
+
+%--- Warum Git? ---
+\begin{frame}\frametitle{Warum Git?}
+\begin{description}
+\item[tested] Protokiv im Einsatz bei Linux-Kernel (>1000 Entwickler)
+\item[me] ... i know about it and i \textit{really like it} ;-)
+\end{description}
+
+\begin{figure}
+\includegraphics[scale=0.2]{Bilder/kernel_Entwickler} 
+\caption{Übersicht\footnote{Quelle: \href{http://www.schoenitzer.de/lks/lks.html\#new_developers}{Michael Schönitzer}} über die Anzahl der Linux Kernel Entwickler}
 \end{figure}
 \end{frame}
 
@@ -266,6 +335,13 @@ Viele Open Source Projekte setzen bereits Git ein: \\
 
 %--- Grundbegriffe ---
 \subsection{Grundbegriffe}
+\begin{frame}[c]
+\begin{center}
+\begin{Huge}
+Grundbegriffe
+\end{Huge}
+\end{center}
+\end{frame}
 
 %--- Grundbegriffe (GIT) ---
 \begin{frame}\frametitle{Grundbegriffe}
@@ -353,6 +429,9 @@ Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So könn
 \end{figure}
 \end{frame}
 
+\subsection{Zentral VS Dezentral}
+
+
 %----- Tools -----
 \section{Tools}
 
@@ -394,10 +473,22 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 
 \begin{figure}
 \includegraphics[scale=0.9]{Bilder/meld} 
-\caption{\textit{meld}: einfach, übersichtlich und immer da!}
+\caption{\textit{meld}: einfach, übersichtliches diff-Tool}
 \end{figure}
 \end{frame}
 
+%----- tortoisegit -----
+\subsection{tortoisegit}
+
+%--- tortoisegit ---
+\begin{frame}\frametitle{tortoisegit}
+\textbf{tortoisegit} ist ein kostenloser und freier Windows Client für Git.
+
+\begin{figure}
+\includegraphics[scale=0.9]{Bilder/tortoisegit} 
+\caption{\textit{tortoiseGit}: Git Integration in den Windows Explorer}
+\end{figure}
+\end{frame}
 
 %----- Befehle -----
 \section{Befehle}
@@ -525,25 +616,74 @@ git clone /home/julia/git git
 \end{exampleblock}
 \end{frame}
 
+%--- .gitignore ---
+\begin{frame}[fragile]\frametitle{.gitignore}
+\begin{footnotesize}
+Um bestimmte Dateien oder Muster nicht unter Versionsverwaltung zu stellen kann man die \textbf{\textit{.gitignore}} Datei verwenden. Alle darin enthaltenen Dateien oder Muster werden ignoriert.
+
+In der Regel werden bei einem Buildprozeß Hilfsdateien angelegt die nur für die Tools notwendig sind. Diese Dateien möchte man in der Regeln nicht versionieren. Auch Projektdateien und Konfigurationsdateien von der Entwicklungsumgeben haben in der Versionsverwaltung nichts zu suchen, da diese sich mit unterschiedlichen Benutzern oder Programmen ändern. 
+
+Liegt die .gitignore Datei kann sich selbst im entsprechenden Projektordner 
+befinden und unter Versionsverwaltung gestellt werden. Daneben kann man zusätzlich
+eine eigene Datei die nicht im unter Versionsverwaltung steht und sich sinnvollerweise im eigenen Home
+Verzeichnis befindet mit einbinden: 
+\end{footnotesize}
+\begin{lstlisting}
+git config --global core.excludesfile ~/.gitignore
+\end{lstlisting}
+\end{frame}
+
+%--- .gitignore 2 ---
+\begin{frame}[fragile]\frametitle{.gitignore 2}
+\begin{block} {\textbf{\textit{.gitignore}}}
+Eine \textbf{\textit{.gitignore}} Datei sieht nun z.B. wie folgt aus:
+\begin{lstlisting}[mathescape=true]
+# do not versioning all LaTeX files!
+*.log
+*.out
+# ...
+
+# Verzeichnis komplett ignorieren
+~/temp/
+
+# ! invertiert den Wunsch, so wird die Datei 
+# ImportendLogging.log doch von git verwaltet, 
+# obwohl obiges Muster *.log zutrifft. 
+!ImportendLogging.log
+\end{lstlisting}
+\end{block}
+\end{frame}
+
 %----- Quellen ----- 
 \section[Quellen]{Referezen}
 
 %--- Quellen und Literatur ---
 \begin{frame}\frametitle{Quellen \& Literatur}
-
 \begin{thebibliography}{9}
-\bibitem[Beamerpaket]{paket} \emph{Beamer Paket} \\ 
-\text{http://latex-beamer.sourceforge.net/}98a74d912af7ebf23902ee03aa9be4cbe87ccd7e
-\bibitem[Beamerdokumentation]{doku} \emph{User's Guide to the Beamer} 
-\bibitem[Dante]{dante} \emph{DANTE e.V.} \text{http://www.dante.de}   
+\bibitem[a]{a} \emph{\href{http://wiki.bazaar.canonical.com/BzrVsGit}{Bazaar vs Git}}
+\bibitem[a1]{a1} \emph{\href{http://de.wikipedia.org/wiki/Versionsverwaltung}{Versionsverwaltung}}
+\bibitem[a2]{a2} \emph{\href{http://progit.org/}{Pro Git - Scott Chacon}}
+\bibitem[a3]{a3} \emph{\href{http://better-scm.shlomifish.org/comparison/comparison.html}{Version Control System Comparison}}
+\bibitem[a4]{a4} \emph{\href{http://www.madboa.com/geek/rcs/} {RCS HowTo}}
+\bibitem[a5]{a5} \emph{\href{http://doc.bazaar.canonical.com/migration/en/why-switch-to-bazaar.html}{Why Switch to Bazaar?}}
+\bibitem[a6]{a6} \emph{\href{http://wiki.ubuntuusers.de/Bazaar}{Bazaar}}
+\bibitem[a7]{a7} \emph{\href{http://wiki.eclipse.org/EGit/User\_Guide} {EGit User Guide}}
 \end{thebibliography}
-
-
 \end{frame}
 
-
-
-
+%--- Quellen und Literatur ---
+\begin{frame}\frametitle{Quellen \& Literatur 2}
+\begin{thebibliography}{9}
+\bibitem[a8]{a8} \emph{\href{http://wiki.ubuntuusers.de/Git}{Git}}
+\bibitem[a9]{a9} \emph{\href{https://github.com/features/projects}{Github}}
+\bibitem[a10]{a10} \emph{\href{http://book.git-scm.com/index.html}{The Git Community Book}}
+\bibitem[a11]{a11} \emph{\href{http://git-scm.com/}{Git Projekt Page}}
+\bibitem[a12]{a12} \emph{\href{http://git.or.cz/course/svn.html}{Git - SVN Crash Course}}
+\bibitem[a13]{a13} \emph{\href{http://de.whygitisbetterthanx.com/}{Warum Git besser als X ist}}
+\bibitem[a14]{a14} \emph{\href{http://velian.dyndns.org/mediawiki/index.php/SVN\_und\_GIT\_im\_Vergleich}{SVN und GIT im Vergleich}}
+\bibitem[a15]{a15} \emph{\href{http://www.markshuttleworth.com/archives/123}{Renaming is the killer app of distributed version control}}
+\end{thebibliography}
+\end{frame}
 
 \end{document}
 
