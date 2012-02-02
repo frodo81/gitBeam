@@ -53,13 +53,14 @@ morekeywords={*,...}            % if you want to add more keywords to the set
 \end{frame}
 
 \begin{frame}
-\frametitle{Inhaltsverzeichnis}\tableofcontents
+\frametitle{Inhaltsverzeichnis}
+\tableofcontents[hidesubsections]
+%\tableofcontents[currentsection,currentsubsection,hideothersubsections]
 %[pausesections]
 \end{frame}
 
 %--- Einführung ---
 \section{Einführung} 
-
 
 %--- Was ist ein Versionsverwaltungsystem ---
 \subsection{Was ist ein Versionsverwaltungsystem}
@@ -434,6 +435,16 @@ Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So könn
 
 %----- Tools -----
 \section{Tools}
+\begin{frame}[c]
+\begin{center}
+\begin{Huge}
+GUI-Tools für Git
+\end{Huge}
+
+gitk, git-gui, meld, TortoiseGit
+\end{center}
+\end{frame}
+
 
 %----- gitk -----
 \subsection{gitk}
@@ -462,8 +473,8 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 \end{figure}
 \end{frame}
 
-%----- Diff-Tools -----
-\subsection{Diff-Tools}
+%----- diff-Tools -----
+\subsection{diff-Tools}
 
 %--- Diff-Tool: meld ---
 \begin{frame}\frametitle{Diff-Tool: meld}
@@ -477,17 +488,65 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 \end{figure}
 \end{frame}
 
-%----- tortoisegit -----
-\subsection{tortoisegit}
+%----- TortoiseGit -----
+\subsection{TortoiseGit}
+
 
 %--- tortoisegit ---
-\begin{frame}\frametitle{tortoisegit}
-\textbf{tortoisegit} ist ein kostenloser und freier Windows Client für Git.
+\begin{frame}\frametitle{TortoiseGit}
+\textbf{TortoiseGit} ist ein kostenloser und freier Windows Client für Git.
 
 \begin{figure}
-\includegraphics[scale=0.9]{Bilder/tortoisegit} 
+\includegraphics[scale=0.25]{Bilder/TortoiseGitIcon4} 
 \caption{\textit{tortoiseGit}: Git Integration in den Windows Explorer}
 \end{figure}
+\end{frame}
+
+%--- tortoisegit 2 ---
+\begin{frame}\frametitle{TortoiseGit 2}
+GIT-Befehle in das Kontext Menü im Windows Explorer integriert:
+
+\begin{figure}
+\includegraphics[scale=0.5]{Bilder/TortoiseGita} 
+\caption{Git Befehle im Kontextmenü des Explorers. Es werden nur die nutzbaren Befehle angezeigt.}
+\end{figure}
+\end{frame}
+
+%--- tortoisegit 3 ---
+\begin{frame}\frametitle{TortoiseGit 3}
+Als erstes sollte man seine Benutzerdaten eintragen:
+
+\begin{figure}
+\includegraphics[scale=0.25]{Bilder/TortoiseGitConfig} 
+\caption{Unter \textbf{Settings} kann man sollte man Benutzer und Email einstellen!}
+\end{figure}
+\end{frame}
+
+%--- tortoisegit 4 ---
+\begin{frame}\frametitle{TortoiseGit 4}
+Mit den \textbf{Commit...} Button kann man ganz einfach den aktuellen Stand sichern:
+
+\begin{figure}
+\includegraphics[scale=0.35]{Bilder/TortoiseGitCommit} 
+\caption{TortoiseGit bietet die Möglichkeit nur die ausgewählten Dateien in einen Commit zusammenzufassen!}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}\frametitle{TortoiseGit 5}
+
+\begin{columns}
+        \column{.45\textwidth}
+        Merkmale von TortoiseGit:
+                \begin{enumerate}
+                \item Intuitiv und schnell zu erlernen
+                \item gute Integration in Windows durch Overlays
+                \item add, commit und push mit einem Dialog
+                \item Unterstützt gängige Speicherorte, u.a. Netzlaufwerke, GitHub, ...
+                \end{enumerate}
+        \column{.55\textwidth}
+                \pgfimage[width=\textwidth]{Bilder/TortoiseGit2.png}                
+\end{columns}
 \end{frame}
 
 %----- Befehle -----
@@ -496,6 +555,13 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 %--- Befehle ---
 \begin{frame}[fragile]\frametitle{Befehle}
 \begin{block} {Getting Started}
+\begin{tiny}
+Als erstes sollte man Git seine Identiät bekannt machen:
+\begin{lstlisting}
+git config --global user.name "Bernd Wunder"
+git config --global user.email bernd.wunder@leb...
+\end{lstlisting}
+
 neues Repository im aktuellen Verzeichnis anlegen:
 \begin{lstlisting}
 git init
@@ -516,6 +582,7 @@ einen Commit ausführen:
 \begin{lstlisting}
 git commit -m "Initial Commit"
 \end{lstlisting}
+\end{tiny}
 \end{block}
 \end{frame}
 
@@ -528,7 +595,7 @@ bernd@power:~$\$$ $\textbf{git remote}$
 origin
 power
 \end{lstlisting}
-%$
+%
 
 oder ausführlicher mit:
 \begin{lstlisting}[mathescape=true]
@@ -536,7 +603,7 @@ bernd@power:~$\$$ $\textbf{git remote -v}$
 origin  /media/Transcend/Versionsverwaltung_mit_GIT/ (fetch)
 origin  /media/Transcend/Versionsverwaltung_mit_GIT/ (push)
 \end{lstlisting}
-%$
+%
 
 einen neuen Alias auf einen entfernten Remote hinzufügen:
 \begin{lstlisting}
@@ -558,7 +625,7 @@ Eine ausführliche Übersicht über die vorhandenen Branches:
 bernd@Power:~$\$$ $\textbf{git branch -v}$
 * lilly  98a74d9 Some further commands
   master e2694e7 Some explaination about commands
-\end{lstlisting} %$
+\end{lstlisting} %
 
 Umbenenen des aktuellen Zweiges nach isabella:
 \begin{lstlisting}
@@ -573,8 +640,20 @@ git checkout master
 \end{block}
 \end{frame}
 
+%----- Sonstiges -----
+\section{Sonstiges}
+\begin{frame}[c]
+\begin{center}
+\begin{Huge}
+Sonstiges 
+\end{Huge}
+
+Protokolle, .gitignore, Kooperation mit anderen VCS
+\end{center}
+\end{frame}
+
 %----- Protokolle -----
-\section{Protokolle}
+\subsection{Protokolle}
 
 %--- Protokolle ---
 \begin{frame}[fragile]\frametitle{Protokolle}
@@ -616,6 +695,9 @@ git clone /home/julia/git git
 \end{exampleblock}
 \end{frame}
 
+%----- .gitignore -----
+\subsection{.gitignore}
+
 %--- .gitignore ---
 \begin{frame}[fragile]\frametitle{.gitignore}
 \begin{footnotesize}
@@ -623,7 +705,7 @@ Um bestimmte Dateien oder Muster nicht unter Versionsverwaltung zu stellen kann 
 
 In der Regel werden bei einem Buildprozeß Hilfsdateien angelegt die nur für die Tools notwendig sind. Diese Dateien möchte man in der Regeln nicht versionieren. Auch Projektdateien und Konfigurationsdateien von der Entwicklungsumgeben haben in der Versionsverwaltung nichts zu suchen, da diese sich mit unterschiedlichen Benutzern oder Programmen ändern. 
 
-Liegt die .gitignore Datei kann sich selbst im entsprechenden Projektordner 
+Die \textbf{\textit{.gitignore}} Datei kann sich selbst im entsprechenden Projektordner 
 befinden und unter Versionsverwaltung gestellt werden. Daneben kann man zusätzlich
 eine eigene Datei die nicht im unter Versionsverwaltung steht und sich sinnvollerweise im eigenen Home
 Verzeichnis befindet mit einbinden: 
@@ -652,6 +734,48 @@ Eine \textbf{\textit{.gitignore}} Datei sieht nun z.B. wie folgt aus:
 !ImportendLogging.log
 \end{lstlisting}
 \end{block}
+\end{frame}
+
+%----- Kooperation mit anderen VCS -----
+\subsection{Kooperation mit anderen VCS}
+
+%--- Kooperation mit anderen VCS ---
+\begin{frame}\frametitle{Kooperation mit anderen VCS}
+Git bietet sehr gute kooperation mit anderen Systemen wie Basar, Mercurial, SVN, CVS
+
+\begin{columns}
+        \column{.5\textwidth}
+                \begin{itemize}                
+					\item git-svn -> besser wenn Hauptrepository in GIT
+					\item subgit (Subversion (SVN) + Git) -> besser wenn Hauptrepository in SVN
+					\item git-cvs	
+					\item hg-git
+					\item git-hg
+					\item git-bzr					
+					\item ...
+                \end{itemize}
+        \column{.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.4]{Bilder/subgit} 
+{\footnotesize \caption{Git arbeitet gut mit anderen VCS zusammen, wie z.B. mit Subversion (SVN)}}
+\end{figure}
+\end{columns}
+\end{frame}
+
+%----- Submodules -----
+\subsection{Submodules}
+
+%--- Kooperation mit anderen VCS ---
+\begin{frame}\frametitle{Submodules}
+Unter einem Submodul versteht man ein Repository, das sich in einem Unterordner eines anderen Repositories befindet. Dies bietet sich z.B. an um eine eigene Bibliothek auf eine \textit{intelligente} Art einzubinden. 
+
+Bindet man eine externe Bibliothek ein und führt Anpassungen durch, können folgende Probleme auftretten:
+\begin{itemize}                
+	\item Einbinden einer statischen festen Version: Durch die Anpassungen wird ein folgen des Mainstreams sehr aufwendig. 
+	\item Bibliothek als gegeben voraussetzen: Anpassungen an der Bibliothek sind damit ausgeschlossen. 
+\end{itemize}
+
+Durch die Verwendung von Submodules in Git kann man die beiden beschriebenen Probleme umgehen.
 \end{frame}
 
 %----- Quellen ----- 
