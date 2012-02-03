@@ -40,13 +40,13 @@ escapeinside={\%*}{*)},         % if you want to add a comment within your code
 morekeywords={*,...}            % if you want to add more keywords to the set
 }
 
-\title{Eine Einführung in Versionverwaltungsysteme}   
+\title[Einführung in Versionsverwaltung]{Eine Einführung in Versionverwaltungsysteme}   
 \subtitle{Wissenswertes für GIT-Anwender}
-\titlegraphic{\includegraphics[width=2cm,height=2cm]{erlangen}}
+\titlegraphic{\includegraphics[height=1.5cm]{Bilder/Logo_FAU}}
 \author[Bernd Wunder]{bernd.wunder@leb.eei.uni-erlangen.de} 
 \institute[LEB -- TF Uni Erlangen]{Lehrstuhl für Elektronische Bauelemente\\ Friedrich-Alexander-Universität Erlangen-Nürnberg}
 \date{\today}
-\logo{\includegraphics[scale=0.08]{erlangen}}
+\logo{\includegraphics[scale=0.08]{Bilder/Logo_FAU2}}
 
 \begin{frame}
 \titlepage
@@ -61,16 +61,24 @@ morekeywords={*,...}            % if you want to add more keywords to the set
 
 %--- Einführung ---
 \section{Einführung} 
+\begin{frame}[c]{}
+\begin{center}
+\begin{Huge}
+Einführung
+\end{Huge}
+\vspace{1.5cm}
+\begin{itemize}
+\item Was ist ein Versionsverwaltungssystem? 
+\item Warum Versionsverwaltung? 
+\item Übersicht über VCS 
+\item Warum Git?
+\item Grundbegriffe
+\end{itemize}
+\end{center}
+\end{frame}
 
 %--- Was ist ein Versionsverwaltungsystem ---
 \subsection{Was ist ein Versionsverwaltungsystem}
-\begin{frame}[c]{Einführung}
-\begin{center}
-\begin{Huge}
-Was ist ein Versionsverwaltungssystem
-\end{Huge}
-\end{center}
-\end{frame}
 
 %--- Was ist ein Versionsverwaltungsystem ---
 \begin{frame}\frametitle{Was ist ein Versionsverwaltungsystem} 
@@ -88,17 +96,6 @@ Aufgaben
 \item  gleichzeitige Entwicklung mehrerer Entwicklungszweige (branches)
 \end{itemize} 
 \end{frame}
-
-%----- Warum Versionsverwaltung -----
-\subsection{Warum Versionsverwaltung?}
-\begin{frame}[c]
-\begin{center}
-\begin{Huge}
-Warum Versionsverwaltung?
-\end{Huge}
-\end{center}
-\end{frame}
-
 
 %--- Warum Versionsverwaltung ---
 \begin{frame}\frametitle{Warum Versionsverwaltung?}
@@ -130,13 +127,6 @@ Warum Versionsverwaltung?
 
 %----- Übersicht über Versionsverwaltungsysteme -----
 \subsection{Übersicht über Versionsverwaltungsysteme}
-\begin{frame}[c]
-\begin{center}
-\begin{Huge}
-Übersicht über Versionsverwaltungssysteme
-\end{Huge}
-\end{center}
-\end{frame}
 
 %--- Übersicht über Versionsverwaltungsysteme ---
 \begin{frame}\frametitle{Übersicht über Versionssverwaltungsysteme} 
@@ -249,13 +239,6 @@ Subversion versteht sich als Weiterentwicklung von CVS und entstand als Reaktion
 
 %----- Warum Git? -----
 \subsection{Warum Git?}
-\begin{frame}[c]
-\begin{center}
-\begin{Huge}
-Warum Git?
-\end{Huge}
-\end{center}
-\end{frame}
 
 %--- Warum Git? ---
 \begin{frame}\frametitle{Warum Git?}
@@ -299,7 +282,10 @@ Warum Git?
 \end{figure}
 \end{frame}
 
-%--- Warum Git? ---
+%----- Wer nutzt Git? -----
+\subsection{Wer nutzt Git?}
+
+%--- Wer nutzt Git? ---
 \begin{frame}\frametitle{Wer nutzt Git?}
 Viele Open Source Projekte setzen bereits Git ein: \\
 ( \href{https://git.wiki.kernel.org/articles/g/i/t/GitProjects_8074.html}{umfangreiche Liste auf git.wiki.kernel.org})
@@ -336,26 +322,19 @@ Viele Open Source Projekte setzen bereits Git ein: \\
 
 %--- Grundbegriffe ---
 \subsection{Grundbegriffe}
-\begin{frame}[c]
-\begin{center}
-\begin{Huge}
-Grundbegriffe
-\end{Huge}
-\end{center}
-\end{frame}
 
 %--- Grundbegriffe (GIT) ---
 \begin{frame}\frametitle{Grundbegriffe}
-\begin{block}{Repository}
+\begin{block}{\textit{Repository}}
 Datenbank in dem jeder Dateistand eines Projektes über die Zeit hinweg gespeichert ist.
 \end{block}
-\begin{block}{Working Tree}
+\begin{block}{\textit{Working Tree}}
 Arbeitsverzeichnis in dem die Modifikationen durchgeführt werden.
 \end{block}
-\begin{block}{Commit}
+\begin{block}{\textit{Commit}}
 beinhaltet alle Veränderungen bzw. spiegelt den aktuellen Zustand der in das VCS aufgenommen werden soll wieder. Enthält neben den Änderungen zusätzliche Metadaten (Commit Message, Autor, Datum, Signatur, ...)
 \end{block}
-\begin{block}{HEAD}
+\begin{block}{\textit{HEAD}}
 zeigt auf die neueste Version \textit{Kopf} im aktuellen Zweig (Branch)
 
 Achtung: Unterschide zwischen GIT und SVN,CVS
@@ -364,7 +343,7 @@ Achtung: Unterschide zwischen GIT und SVN,CVS
 
 %--- Grundbegriffe (GIT) ---
 \begin{frame}\frametitle{Grundbegriffe}
-\begin{block}{Secure Hash Algorithm (SHA-1)}
+\begin{block}{\textit{Secure Hash Algorithm (SHA-1)}}
 ist eine eindeutige, 160 Bit (40 hexadezimale Zeichen) lange Prüfsumme für beliebige digitale Informationen.
 \end{block}
 \begin{exampleblock}{Beispiel:}
@@ -378,16 +357,16 @@ mit dem GNU/Linux Programm \textit{sha1sum} wird die Prüfsumme für den Text \t
 \begin{block}{\textit{Branch}}
 bezeichnet einen parallelen Entwicklungszweig. Der Hauptzweig in einem Versionsverwaltungssystem hat meistens einen speziellen Namen. ( z.B in SVN->\textit{trunk} und in GIT->\textit{master})
 \end{block}
-\begin{block}{Objektmodell}
+\begin{block}{\textit{Objektmodell}}
 Git-Objekte (blob, tree, commit, tag) sind in einer Objektdatenbank gespeichert und über SHA1-Summen identifizierbar. Die History eines Repository lässt sich als Graph von Objekten modellieren.
-\end{block}
-\begin{block}{\textit{Index}}
-Der \textit{Index} ist ein lokaler Zwischenspeicher. Alle Änderungen werden zuerst in den index geschrieben. Anschießend wird der Index durch einen \textit{commit} in das Repository eingecheckt. 
 \end{block}
 \end{frame}
 
 %--- Grundbegriffe (GIT) ---
 \begin{frame}\frametitle{Grundbegriffe (GIT)}
+\begin{block}{\textit{Index}}
+Der \textit{Index} ist ein lokaler Zwischenspeicher. Alle Änderungen werden zuerst in den index geschrieben. Anschießend wird der Index durch einen \textit{commit} in das Repository eingecheckt. 
+\end{block}
 \begin{block}{\textit{Clone}}
 ist eine Kopie eines Repositories mit der gesamten History der Entwicklung.
 \end{block}
@@ -396,23 +375,27 @@ Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So könn
 \end{block}
 \end{frame}
 
-%--- History als Graph: Von Branches, Merges und Tags ---
-\begin{frame}\frametitle{History als Graph: Von Branches, Merges und Tags}
-\begin{description}
-\item[Branch] Parralle Entwicklung in Teams erfordert oft mehrere Zweige
-\item[Tag] Name für eine bestimmte Version 
-\item[Merge] Führt den Parallelen Zweig in den Hauptzweig zurück
-\item[Trunk] Name in SVN für den Hauptentwicklungszweig
-\end{description}
-
-\begin{figure}
-\includegraphics[scale=0.15]{2000px-Subversion_project_visualization} 
-\caption{Branches, Merges und Tags \footnote{Quelle: \href{http://en.wikipedia.org/wiki/File:Subversion_project_visualization.svg}{Wikipedia}}}
-\end{figure}
+% Grundlagen
+\section{Grundlagen}
+\begin{frame}[c]
+\begin{center}
+\begin{Huge}
+Grundlagen und die Git Konzepte
+\end{Huge}
+\begin{itemize}
+\vspace{1.5cm}
+\item History
+\item Lokale, zentrale und verteilte Versionsverwaltungssysteme
+\item Zentral VS Dezentral
+\item Der Index
+\item Objektmodel in Git
+\end{itemize}
+\end{center}
 \end{frame}
 
+
 %----- Lokale, zentrale und verteilte Versionsverwaltungssysteme -----
-\section{Lokale, zentrale und verteilte Versionsverwaltungssysteme} 
+\subsection{Lokale, zentrale und verteilte Versionsverwaltungssysteme} 
 
 %----- Branches, Merges und Tags -----
 \begin{frame}\frametitle{Lokale, zentrale und verteilte Versionsverwaltungssysteme}
@@ -430,7 +413,93 @@ Ein Tag ist ein symbolischer Name für schwer zu merkende SHA-1 Summen. So könn
 \end{figure}
 \end{frame}
 
+%----- Zentral VS Dezentral -----
 \subsection{Zentral VS Dezentral}
+
+%----- Zentral VS Dezentral -----
+\begin{frame}\frametitle{Zentral VS Dezentral}
+\begin{figure}
+\includegraphics[scale=.4]{Bilder/centralVSdecentral}
+\end{figure}
+\begin{columns}
+        \column{.35\textwidth}
+        \textbf{Zentrales VCS}
+\begin{tiny}
+\begin{itemize}
+\item Preformance und Skalierbarkeit hängig von vom Server ab
+\item Hohe Serverbelastung
+\item Single Point of Failure
+\item Backups sehr Wichtig!
+\item Hoher Administationsaufwand
+\item Verbindung zu Server notwendig um VCS nutzen zu können.
+\end{itemize}
+\end{tiny}
+        \column{.65\textwidth}
+        \textbf{Dezentrales VCS}
+\begin{tiny}
+        \begin{itemize}
+\item deutlich geringer Serverbelastung beim \textit{zentralen} Speicher
+\item jeder Entwickler hat die Komplette Versionsgeschichte local
+\item Administationsaufwand je nach verwendeter Architektur deutlich geringer
+\item \textbf{keine }Verbindung zu Server notwendig um VCS nutzen zu können.
+\item kann z.B. mit der Portablen Version von Git sogar ohnen "Admin" Rechte installiert und verwendet werden.
+\end{itemize}
+\end{tiny}
+\end{columns}
+\end{frame}
+
+%----- History -----
+\subsection{Histroy}
+
+%--- History ---
+\begin{frame}\frametitle{History}
+\begin{columns}
+        \column{.5\textwidth}
+Nach jeder abgeschlossenen Änderung werden diese in das VCS übertragen. Das VCS verbindet diese Commits miteinander in Form eines Graphen. Es wird ein gerichteter azyklischer Graph aufgebaut (Directed Acyclic Graph, DAG). 
+        \column{.5\textwidth}
+		\begin{figure}
+		\includegraphics[scale=0.30]{Bilder/graph} 
+%		\caption{Branches, Merges und Tags \footnote{Quelle:	\href{http://en.wikipedia.org/wiki/File:Subversion_project_visualization.svg}{Wikipedia}}}
+\end{figure}
+\end{columns}
+
+\begin{block}{\textit{Graph}}
+Ein \textit{Graph} besteht aus den beiden Kernelementen \textit{Knoten} und \textit{Kante}. Ein Commit, Tag, Referenz oder andere Objekte werden immer durch einen Knoten im Graphen dargestellt. Die Kante wird durch einen Verweis auf ein oder mehrere Eltern-Objekt(e) dargestellt. 
+\end{block}
+
+In Git hat jedes Objekt einen eindeutigen SHA1-Prüfsummen. Daraus ergibt sich eine kryptographisch gesicherte Integrität des Repositorys. 
+
+\end{frame}
+
+%--- History als Graph: Von Branches, Merges und Tags ---
+\begin{frame}\frametitle{History als Graph: Von Branches, Merges und Tags}
+\begin{description}
+\item[Branch] ensteht wenn mehrere Versionen von einem Elternobjekt abhängen.
+\item[Tag] ist der Name für eine bestimmte Version. 
+\item[Merge] führt den Parallelen Zweig in den Hauptzweig zurück.
+\item[master] ist in Git der Name für den Hauptentwicklungszweig.
+\end{description}
+
+\begin{figure}
+\includegraphics[scale=0.15]{2000px-Subversion_project_visualization} 
+{\tiny \caption{Der Graph bildet das gesamte Repository (Branches, Merges und Tags) ab. In Subversion: master = trunk.}}
+\end{figure}
+\end{frame}
+
+%--- Objekte in Git ---
+\begin{frame}\frametitle{Objekte in Git}
+\begin{description}
+\item[Blob] Die eigentliche Datei, SHA1-Wert und einige Metadaten.
+\item[Tree] ist eine Sammlung von Blobs. Ein Tree ist damit äquivalent zu einem Verzeichnisordner
+\item[Commit] speichert die Commitdaten, User, Datum, Beschreibung und verweise auf Tree, Blob und Tag ab.
+\item[Tag] verbindet die SHA1-Summe eines anderen Objektes mit einem beliebigen Namen. 
+\end{description}
+
+\begin{figure}
+\includegraphics[scale=0.35]{Bilder/objects-example} 
+{\tiny \caption{Die verschiedenen Objekte (Commit, Tree und Blob) in Git}}
+\end{figure}
+\end{frame}
 
 
 %----- Tools -----
@@ -478,7 +547,7 @@ Einfaches grafisches Programm um Änderungen bereitzustellen und einen Commits z
 
 %--- Diff-Tool: meld ---
 \begin{frame}\frametitle{Diff-Tool: meld}
-%\begin{block}{gitk}
+%\begin{block}{\textit{gitk}}
 %Diffs betrachten und mergen (zusammenführen) von Änderungen und Konflikten.
 %\end{block}
 
