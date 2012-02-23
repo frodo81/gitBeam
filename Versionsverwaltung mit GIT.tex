@@ -12,7 +12,6 @@
 \definecolor{ex_green_titel}{RGB}{204,230,204}
 \definecolor{ex_green}{RGB}{230,243,230}
 \definecolor{light-gray}{gray}{0.95}
-
 % Abschalten der Navigationsleiste!
 % \beamertemplatenavigationsymbolsempty
 
@@ -21,7 +20,7 @@
 language=bash,                % the language of the code
 basicstyle=\footnotesize,       % the size of the fonts that are used for the code
 %numbers=right,                   % where to put the line-numbers
-n%umberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+%umberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
 %stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
                                 % will be numbered
 numbersep=-10pt,                  % how far the line-numbers are from the code
@@ -78,10 +77,10 @@ Einführung
 \end{frame}
 
 %--- Was ist ein Versionsverwaltungsystem ---
-\subsection{Was ist ein Versionsverwaltungsystem}
+\subsection{Was ist ein Versionsverwaltungssystem}
 
 %--- Was ist ein Versionsverwaltungsystem ---
-\begin{frame}\frametitle{Was ist ein Versionsverwaltungsystem} 
+\begin{frame}\frametitle{Was ist ein Versionsverwaltungssystem} 
 \begin{quote}
 Eine Versionsverwaltung ist ein System, das zur Erfassung von Änderungen an Dokumenten oder Dateien verwendet wird. Alle Versionen werden in einem Archiv mit Zeitstempel und Benutzerkennung gesichert und können später wiederhergestellt werden.
 \footnote{Quelle: \href{http://de.wikipedia.org/wiki/Versionsverwaltung}{Wikipedia}}
@@ -126,21 +125,37 @@ Aufgaben
 \end{frame}
 
 %----- Übersicht über Versionsverwaltungsysteme -----
-\subsection{Übersicht über Versionsverwaltungsysteme}
+\subsection{Übersicht über Versionsverwaltungssysteme}
 
 %--- Übersicht über Versionsverwaltungsysteme ---
-\begin{frame}\frametitle{Übersicht über Versionssverwaltungsysteme} 
+\begin{frame}\frametitle{Übersicht über Versionsverwaltungssysteme} 
 engl. Bezeichnungen: \textit{Version Control System (VCS)}, \textit{Software Configuration Management (SCM)}, \textit{Revision Control System (RCS)}
 \vspace*{0.15cm}
+
+Ein bisschen über die \textbf{\href{http://doi.acm.org/10.1145/1668862.1668876}{Geschichte}} von VCS: 
+\begin{itemize}
+\item \href{http://www.basepath.com/aup/talks/SCCS-Slideshow.pdf}{Marc J. Rochkind: Source Code Control System (1972)} 
+\item \href{http://dl.acm.org/citation.cfm?id=807748}{Walter F. Tichy: Revision Control System (1980)}
+\item \href{http://www.grosskurth.ca/bib/1986/grune.pdf}{Dick Grune: Concurent Control System (1985)}
+\item Brian Berliner: Neu in C geschrieben, wurde später zur GNU CVS Version (1990)
+\item Karl Fogel, Jim Blandy, \href{http://dl.acm.org/citation.cfm?id=513039.513042}{Ben Collins-Sussman}: Subversion (2000) 
+\item \href{http://marc.info/?l=linux-kernel&m=111280216717070}{Linus Torvalds: Git (2005)}
+\item \href{http://download.hforge.org/doc/git-resources/200607-ols.pdf}{Junio C Hamano: GIT — a stupid content tracker}
+
+\end{itemize}
+
+\end{frame}
+%--- Übersicht über Versionsverwaltungsysteme ---
+\begin{frame}\frametitle{Übersicht über Versionsverwaltungssysteme} 
 \textbf{unvollständige Übersicht einiger VCSe:}
 \begin{block}{Revision Control System (RCS)}
 	\begin{tabular}{l c}
 Entwicklung: & 1980 bis 2004  \\  
-Einteilung: & zentrales, dateibasiertes VCS \\ 
+Einteilung: & lokales, dateibasiertes VCS \\ 
 Probleme: & Binärdateien, Verzeichnisse, locks, merge, \\
           & keine Atomic commits, keine Metadaten, umbenennen  \\
 Lizenz: & GPL2 \\
-Betriebsysteme: & UNIX, WIN95 \\
+Betriebssysteme: & UNIX, WIN95 \\
 
 \end{tabular} 
 
@@ -282,6 +297,17 @@ Subversion versteht sich als Weiterentwicklung von CVS und entstand als Reaktion
 \end{figure}
 \end{frame}
 
+%--- Warum Git? ---
+\begin{frame}\frametitle{Warum Git?}
+
+
+\begin{figure}
+\href{http://github.com}{
+\includegraphics[scale=0.7]{Bilder/github.png} 
+}
+\end{figure}
+\end{frame}
+
 %----- Wer nutzt Git? -----
 \subsection{Wer nutzt Git?}
 
@@ -384,11 +410,13 @@ Grundlagen und die Git Konzepte
 \end{Huge}
 \begin{itemize}
 \vspace{1.5cm}
-\item History
 \item Lokale, zentrale und verteilte Versionsverwaltungssysteme
 \item Zentral VS Dezentral
+\item Workflows
 \item Der Index
 \item Objektmodel in Git
+\item History
+
 \end{itemize}
 \end{center}
 \end{frame}
@@ -410,6 +438,15 @@ Grundlagen und die Git Konzepte
 \includegraphics[scale=.15]{Bilder/VCSArten}
 \caption{Unterschiedliche Arten von Versionsverwaltungssystemen
  \footnote{Quelle: \href{http://progit.org/}{Pro Git - Scott Chacon}}}
+\end{figure}
+\end{frame}
+
+%----- unterschiedliches Speicherformat -----
+\begin{frame}\frametitle{Wie speichern VCS meine Daten?}
+
+\begin{figure}
+\includegraphics[scale=.35]{Bilder/fileSave}
+\caption{Subversion, CVS speichern nur die Unterschiede (diffs), Git speichert Snapshots}
 \end{figure}
 \end{frame}
 
@@ -476,6 +513,79 @@ Grundlagen und die Git Konzepte
 \end{columns}
 \end{frame}
 
+%----- Zentral AND Dezentral -----
+\begin{frame}\frametitle{Zentral AND Dezentral}
+\begin{figure}
+\includegraphics[scale=.5]{Bilder/using-git-with-svn-repo}
+\end{figure}
+\end{frame}
+
+%----- Workflows -----
+\subsection{Workflows}
+\begin{frame}\frametitle{Workflows}
+\begin{figure}
+\includegraphics[scale=.9]{Bilder/workflow-a}
+\end{figure}
+\end{frame}
+
+%----- Workflows -----
+\begin{frame}\frametitle{Workflows}
+\begin{figure}
+\includegraphics[scale=.9]{Bilder/workflow-b}
+\end{figure}
+\end{frame}
+
+%----- Workflows -----
+\begin{frame}\frametitle{Workflows}
+\begin{figure}
+\includegraphics[scale=.9]{Bilder/workflow-c}
+\end{figure}
+\end{frame}
+
+%----- Der Index -----
+\subsection{Der Index}
+\begin{frame}[c]
+\begin{center}
+\begin{Huge}
+Der Index
+\end{Huge}
+\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{Der Index}
+\begin{figure}
+\includegraphics[scale=.55]{Bilder/fileStatus.png}
+\end{figure}
+\end{frame}
+
+
+%--- Objekte in Git ---
+\subsection{Objekte in Git}
+
+%--- Objekte in Git ---
+\begin{frame}\frametitle{Objekte in Git}
+
+\begin{figure}
+\includegraphics[scale=0.4]{Bilder/Objects} 
+{\tiny \caption{Die verschiedenen Objekte (Commit, Tree, Tag und Blob) in Git}}
+\end{figure}
+\end{frame}
+
+%--- Objekte in Git ---
+\begin{frame}\frametitle{Objekte in Git}
+\begin{description}
+\item[Blob] Die eigentliche Datei, SHA1-Wert und einige Metadaten.
+\item[Tree] ist eine Sammlung von Blobs. Ein Tree ist damit äquivalent zu einem Verzeichnisordner
+\item[Commit] speichert die Commitdaten, User, Datum, Beschreibung und verweise auf Tree, Blob und Tag ab.
+\item[Tag] verbindet die SHA1-Summe eines anderen Objektes mit einem beliebigen Namen. 
+\end{description}
+
+\begin{figure}
+\includegraphics[scale=0.35]{Bilder/objects-example} 
+{\tiny \caption{Die verschiedenen Objekte (Commit, Tree und Blob) in Git}}
+\end{figure}
+\end{frame}
+
 %----- History -----
 \subsection{Histroy}
 
@@ -502,7 +612,7 @@ In Git hat jedes Objekt einen eindeutigen SHA1-Prüfsummen. Daraus ergibt sich e
 %--- History als Graph: Von Branches, Merges und Tags ---
 \begin{frame}\frametitle{History als Graph: Von Branches, Merges und Tags}
 \begin{description}
-\item[Branch] ensteht wenn mehrere Versionen von einem Elternobjekt abhängen.
+\item[Branch] entsteht wenn mehrere Versionen von einem Elternobjekt abhängen.
 \item[Tag] ist der Name für eine bestimmte Version. 
 \item[Merge] führt den Parallelen Zweig in den Hauptzweig zurück.
 \item[master] ist in Git der Name für den Hauptentwicklungszweig.
@@ -513,22 +623,6 @@ In Git hat jedes Objekt einen eindeutigen SHA1-Prüfsummen. Daraus ergibt sich e
 {\tiny \caption{Der Graph bildet das gesamte Repository (Branches, Merges und Tags) ab. In Subversion: master = trunk.}}
 \end{figure}
 \end{frame}
-
-%--- Objekte in Git ---
-\begin{frame}\frametitle{Objekte in Git}
-\begin{description}
-\item[Blob] Die eigentliche Datei, SHA1-Wert und einige Metadaten.
-\item[Tree] ist eine Sammlung von Blobs. Ein Tree ist damit äquivalent zu einem Verzeichnisordner
-\item[Commit] speichert die Commitdaten, User, Datum, Beschreibung und verweise auf Tree, Blob und Tag ab.
-\item[Tag] verbindet die SHA1-Summe eines anderen Objektes mit einem beliebigen Namen. 
-\end{description}
-
-\begin{figure}
-\includegraphics[scale=0.35]{Bilder/objects-example} 
-{\tiny \caption{Die verschiedenen Objekte (Commit, Tree und Blob) in Git}}
-\end{figure}
-\end{frame}
-
 
 %----- Tools -----
 \section{Tools}
@@ -903,6 +997,9 @@ Durch die Verwendung von Submodules in Git kann man die beiden beschriebenen Pro
 \bibitem[a13]{a13} \emph{\href{http://de.whygitisbetterthanx.com/}{Warum Git besser als X ist}}
 \bibitem[a14]{a14} \emph{\href{http://velian.dyndns.org/mediawiki/index.php/SVN\_und\_GIT\_im\_Vergleich}{SVN und GIT im Vergleich}}
 \bibitem[a15]{a15} \emph{\href{http://www.markshuttleworth.com/archives/123}{Renaming is the killer app of distributed version control}}
+\bibitem[a16]{a16} \emph{\href{http://www.scrum-day.de/index.html}{Scrum}}
+\bibitem[a17]{a17} \emph{\href{http://www.heise.de/developer/artikel/Ueber-den-Status-quo-verteilter-Versionsverwaltungssysteme-1285649.html}{Über den Status quo verteilter Versionsverwaltungssysteme}}
+
 \end{thebibliography}
 \end{frame}
 
